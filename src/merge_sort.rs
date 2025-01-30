@@ -1,4 +1,4 @@
-pub fn merge_sort<T: PartialOrd>(arr: &mut [T]) {
+pub fn run<T: PartialOrd>(arr: &mut [T]) {
     if arr.len() > 1 {
         merge_sort_in_place(arr, 0, arr.len() - 1)
     }

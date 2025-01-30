@@ -1,4 +1,4 @@
-pub fn quick_sort<T: PartialOrd>(vec: &mut [T]) {
+pub fn run<T: PartialOrd>(vec: &mut [T]) {
     match vec.len() {
         0 | 1 => return,
         2 => {
@@ -10,7 +10,7 @@ pub fn quick_sort<T: PartialOrd>(vec: &mut [T]) {
     }
 }
 
-pub fn quick_sort_in_place<T: PartialOrd>(vec: &mut [T]) {
+fn quick_sort_in_place<T: PartialOrd>(vec: &mut [T]) {
     let pivot_index = vec.len() - 1;
     let mut right = pivot_index - 1;
     let mut left = 0;
@@ -25,8 +25,8 @@ pub fn quick_sort_in_place<T: PartialOrd>(vec: &mut [T]) {
             if left != pivot_index {
                 vec.swap(left, pivot_index)
             }
-            quick_sort(&mut vec[..left]);
-            quick_sort(&mut vec[(left + 1)..]);
+            run(&mut vec[..left]);
+            run(&mut vec[(left + 1)..]);
             break;
         }
         vec.swap(left, right);
