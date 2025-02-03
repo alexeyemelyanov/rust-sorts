@@ -35,3 +35,36 @@ fn merge_in_place<T: PartialOrd>(arr: &mut [T], start: usize, end: usize, border
         }
     }
 }
+
+#[cfg(test)]
+mod test {
+    use crate::merge_sort;
+
+    #[test]
+    fn test1() {
+        let mut vec = vec![7, 2, 4, 3, 1];
+        merge_sort::run(&mut vec);
+        assert_eq!(vec, vec![1, 2, 3, 4, 7]);
+    }
+
+    #[test]
+    fn test2() {
+        let mut vec = vec![3, 7, 8, 5, 2, 1, 9, 5, 4];
+        merge_sort::run(&mut vec);
+        assert_eq!(vec, vec![1, 2, 3, 4, 5, 5, 7, 8, 9]);
+    }
+
+    #[test]
+    fn test3() {
+        let mut vec = vec![3, 2, 1, 4, 7, 8, 5];
+        merge_sort::run(&mut vec);
+        assert_eq!(vec, vec![1, 2, 3, 4, 5, 7, 8]);
+    }
+
+    #[test]
+    fn test4() {
+        let mut vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        merge_sort::run(&mut vec);
+        assert_eq!(vec, vec![1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    }
+}
